@@ -1,0 +1,209 @@
+﻿<mockups:WindowsPhoneChrome xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation" xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml" xmlns:d="http://schemas.microsoft.com/expression/blend/2008" xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" xmlns:mockups="clr-namespace:Microsoft.Expression.Prototyping.WindowsPhone.Mockups;assembly=WindowsPhone.Mockups" xmlns:i="http://schemas.microsoft.com/expression/2010/interactivity" xmlns:pi="http://schemas.microsoft.com/prototyping/2010/interactivity" xmlns:ei="http://schemas.microsoft.com/expression/2010/interactions" xmlns:wp="http://schemas.microsoft.com/prototyping/2010/controls/windowsphone" xmlns:ec="http://schemas.microsoft.com/expression/2010/controls" xmlns:local="clr-namespace:WindowsPhonePrototype1Screens" mc:Ignorable="d"
+    x:Class="WindowsPhonePrototype1Screens.Screen_1"
+    x:Name="PhoneChrome">
+	<i:Interaction.Triggers>
+    	<i:EventTrigger EventName="OrientationChanged">
+    		<i:Interaction.Behaviors>
+    			<ei:ConditionBehavior>
+    				<ei:ConditionalExpression>
+    					<ei:ComparisonCondition LeftOperand="{Binding PageOrientation, ElementName=PhoneChrome}"
+    						RightOperand="Landscape" />
+    				</ei:ConditionalExpression>
+    			</ei:ConditionBehavior>
+    		</i:Interaction.Behaviors>
+    		<mockups:GoToStateAction StateName="Landscape"
+    			TargetObject="{Binding ElementName=LayoutRoot}"
+    			TargetName="LayoutRoot" />
+    	</i:EventTrigger>
+		
+    	<i:EventTrigger EventName="OrientationChanged">
+    		<i:Interaction.Behaviors>
+    			<ei:ConditionBehavior>
+    				<ei:ConditionalExpression>
+    					<ei:ComparisonCondition LeftOperand="{Binding PageOrientation, ElementName=PhoneChrome}"
+    						RightOperand="Portrait" />
+    				</ei:ConditionalExpression>
+    			</ei:ConditionBehavior>
+    		</i:Interaction.Behaviors>
+    		<mockups:GoToStateAction StateName="Portrait"
+    			TargetObject="{Binding ElementName=LayoutRoot}"
+    			TargetName="LayoutRoot" />
+    	</i:EventTrigger>
+    </i:Interaction.Triggers>
+
+    <mockups:WindowsPhoneChrome.BackButton>
+        <Button Style="{StaticResource Chrome-Button}">
+            <i:Interaction.Triggers>
+            	<i:EventTrigger EventName="Click">
+            		<pi:NavigateBackAction />
+            	</i:EventTrigger>
+            </i:Interaction.Triggers>
+            <Image Source="/AppBarIcons/back.png" />
+        </Button>
+    </mockups:WindowsPhoneChrome.BackButton>
+
+    <mockups:WindowsPhoneChrome.HomeButton>
+        <Button Style="{StaticResource Chrome-Button}">
+            <i:Interaction.Triggers>
+            	<i:EventTrigger EventName="Click">
+            		<pi:NavigateToScreenAction TargetScreen="WindowsPhonePrototype1Screens.Home" />
+            	</i:EventTrigger>
+            </i:Interaction.Triggers>
+            <Image Source="/AppBarIcons/home.png" >
+            	<i:Interaction.Triggers>
+            		<i:EventTrigger EventName="MouseLeftButtonDown">
+            			<pi:NavigateToScreenAction TargetScreen="WindowsPhonePrototype1Screens.Home"/>
+            		</i:EventTrigger>
+            	</i:Interaction.Triggers>
+            </Image>
+        </Button>
+    </mockups:WindowsPhoneChrome.HomeButton>
+
+    <mockups:WindowsPhoneChrome.SearchButton>
+        <Button Style="{StaticResource Chrome-Button}">
+            <Image Source="/AppBarIcons/search.png" >
+            	<i:Interaction.Triggers>
+            		<i:EventTrigger EventName="MouseLeftButtonDown">
+            			<pi:NavigateToScreenAction TargetScreen="WindowsPhonePrototype1Screens.Search"/>
+            		</i:EventTrigger>
+            	</i:Interaction.Triggers>
+            </Image>
+        </Button>
+    </mockups:WindowsPhoneChrome.SearchButton>
+	
+	<Grid x:Name="LayoutRoot" Background="Transparent">
+		<VisualStateManager.CustomVisualStateManager>
+			<ei:ExtendedVisualStateManager />
+		</VisualStateManager.CustomVisualStateManager>
+		<VisualStateManager.VisualStateGroups>
+			<VisualStateGroup x:Name="CommonStates"
+				ei:ExtendedVisualStateManager.UseFluidLayout="True">
+				<VisualState x:Name="Portrait" />
+				<VisualState x:Name="Landscape">
+					<Storyboard>
+						<ObjectAnimationUsingKeyFrames Storyboard.TargetProperty="(WindowsPhoneChrome.PageOrientation)"
+							Storyboard.TargetName="PhoneChrome">
+							<DiscreteObjectKeyFrame KeyTime="0">
+								<DiscreteObjectKeyFrame.Value>
+									<mockups:PageOrientation>Landscape</mockups:PageOrientation>
+								</DiscreteObjectKeyFrame.Value>
+							</DiscreteObjectKeyFrame>
+						</ObjectAnimationUsingKeyFrames>
+					</Storyboard>
+				</VisualState>
+			</VisualStateGroup>
+		</VisualStateManager.VisualStateGroups>
+		<wp:Panorama Title="Mother Care" Foreground="White">
+			<wp:Panorama.Background>
+				<ImageBrush ImageSource="Images/main.jpg"/>
+			</wp:Panorama.Background>
+			<wp:PanoramaItem Header="MONTH 2" Foreground="White">
+				<Grid>
+					<Grid.ColumnDefinitions>
+						<ColumnDefinition Width="0*"/>
+						<ColumnDefinition/>
+					</Grid.ColumnDefinitions>
+					<ListBox Height="514" Margin="0,5,-26,4" Grid.Column="1" Background="Transparent">
+						<StackPanel Height="136" Width="402" >
+							<i:Interaction.Triggers>
+								<i:EventTrigger EventName="MouseLeftButtonDown">
+									<pi:NavigateToScreenAction TargetScreen="WindowsPhonePrototype1Screens.Diet"/>
+								</i:EventTrigger>
+							</i:Interaction.Triggers>
+							<TextBlock Style="{StaticResource PhoneTextExtraLargeStyle-Sketch}" TextWrapping="Wrap" FontFamily="Segoe WP Black" FontSize="30" Height="144" Margin="132,0,0,0" VerticalAlignment="Center"><Run FontWeight="Bold" Foreground="White" Text="DIET"/><LineBreak/></TextBlock>
+							<Image x:Name="V4" Height="139" Source="Images/diet.jpg" Stretch="Fill" HorizontalAlignment="Left" Width="128" Margin="0,-150,0,0"/>
+						</StackPanel>
+						<StackPanel Height="136" Width="402">
+							<i:Interaction.Triggers>
+								<i:EventTrigger EventName="MouseLeftButtonDown">
+									<pi:NavigateToScreenAction TargetScreen="WindowsPhonePrototype1Screens.Exercise"/>
+								</i:EventTrigger>
+							</i:Interaction.Triggers>
+							<TextBlock Style="{StaticResource PhoneTextExtraLargeStyle-Sketch}" TextWrapping="Wrap" FontFamily="Segoe WP Black" FontSize="30" Height="144" Margin="132,0,0,0"><Run FontWeight="Bold"  Foreground="White" Text="EXERCISES"/></TextBlock>
+							<Image x:Name="V5" Height="139" Source="Images/exercise1.jpg" Stretch="Fill" HorizontalAlignment="Left" Width="128" Margin="0,-150,0,0"/>
+						</StackPanel>
+						<StackPanel Height="136" Width="402">
+							<i:Interaction.Triggers>
+								<i:EventTrigger EventName="MouseLeftButtonDown">
+									<pi:NavigateToScreenAction TargetScreen="WindowsPhonePrototype1Screens.Symptoms"/>
+								</i:EventTrigger>
+							</i:Interaction.Triggers>
+							<TextBlock Style="{StaticResource PhoneTextExtraLargeStyle-Sketch}" TextWrapping="Wrap" FontFamily="Segoe WP Black" FontSize="30" Height="144" Margin="128,0,0,0" VerticalAlignment="Center"><Run FontWeight="Bold"  Foreground="White" Text="SYMPTOMS"/></TextBlock>
+							<Image x:Name="V6" Height="139" Source="Images/symptom.png" Stretch="Fill" HorizontalAlignment="Left" Width="128" Margin="0,-150,0,0"/>
+						</StackPanel>
+						<StackPanel Height="136" Width="402">
+							<TextBlock Style="{StaticResource PhoneTextExtraLargeStyle-Sketch}" TextWrapping="Wrap" FontFamily="Segoe WP Black" FontSize="30" Height="144" Margin="128,0,0,0" VerticalAlignment="Center"><Run FontWeight="Bold"  Foreground="White" Text="BABY STAGES"/></TextBlock>
+							<Image x:Name="V7" Height="139" Source="Images/baby1.png" Stretch="Fill" HorizontalAlignment="Left" Width="128" Margin="0,-150,0,0"/>
+						</StackPanel>
+						
+						<StackPanel Height="136" Width="402">
+							<i:Interaction.Triggers>
+								<i:EventTrigger EventName="MouseLeftButtonDown">
+									<pi:NavigateToScreenAction TargetScreen="WindowsPhonePrototype1Screens.Dosanddonts"/>
+								</i:EventTrigger>
+							</i:Interaction.Triggers>
+							<TextBlock Style="{StaticResource PhoneTextExtraLargeStyle-Sketch}" TextWrapping="Wrap"  FontFamily="Segoe WP Black" FontSize="30" Height="144" Margin="132,0,0,0" VerticalAlignment="Center"><Run FontWeight="Bold"  Foreground="White" Text="DO's &amp; DONT's"/></TextBlock>
+							<Image x:Name="V9" Height="139" Source="Images/dosdontsicon.png" Stretch="Fill" HorizontalAlignment="Left" Width="128" Margin="0,-150,0,0"/>
+						</StackPanel>
+					</ListBox>
+				</Grid>
+			</wp:PanoramaItem>
+			<wp:PanoramaItem Header="KNOW IT ALL" Foreground="White" Width="413">
+			    <Grid>
+					<Grid.ColumnDefinitions>
+						<ColumnDefinition Width="0*"/>
+						<ColumnDefinition/>
+					</Grid.ColumnDefinitions>
+					<ListBox Height="514" Margin="0,5,-26,4" Grid.Column="1" Background="Transparent">
+						<StackPanel Height="136" Width="402" >
+							<i:Interaction.Triggers>
+								<i:EventTrigger EventName="MouseLeftButtonDown">
+									<pi:NavigateToScreenAction TargetScreen="WindowsPhonePrototype1Screens.Pregnency"/>
+								</i:EventTrigger>
+							</i:Interaction.Triggers>
+							<TextBlock Style="{StaticResource PhoneTextExtraLargeStyle-Sketch}" TextWrapping="Wrap" FontFamily="Segoe WP Black"  FontSize="30" Height="144" Margin="132,0,0,0" VerticalAlignment="Center"><Run FontWeight="Bold"  Foreground="White" Text="PREGNENCY DIARY"/></TextBlock>
+							<Image x:Name="V" Height="139" Source="Images/diary.jpg" Stretch="Fill" HorizontalAlignment="Left" Width="128" Margin="0,-150,0,0"/>
+						</StackPanel>
+						<StackPanel Height="136" Width="402">
+							<i:Interaction.Triggers>
+								<i:EventTrigger EventName="MouseLeftButtonDown">
+									<pi:NavigateToScreenAction TargetScreen="WindowsPhonePrototype1Screens.Hospitals"/>
+								</i:EventTrigger>
+							</i:Interaction.Triggers>
+							<TextBlock Style="{StaticResource PhoneTextExtraLargeStyle-Sketch}" TextWrapping="Wrap" FontFamily="Segoe WP Black" FontSize="30" Height="144" Margin="132,0,0,0" VerticalAlignment="Center"><Run FontWeight="Bold"  Foreground="White" Text="HOSPITALS"/></TextBlock>
+							<Image x:Name="V1" Height="139" Source="Images/hospitalicon.png" Stretch="Fill" HorizontalAlignment="Left" Width="128" Margin="0,-150,0,0"/>
+						</StackPanel>
+						<StackPanel Height="136" Width="402">
+							<i:Interaction.Triggers>
+								<i:EventTrigger EventName="MouseLeftButtonDown">
+									<pi:NavigateToScreenAction TargetScreen="WindowsPhonePrototype1Screens.NGOs"/>
+								</i:EventTrigger>
+							</i:Interaction.Triggers>
+							<TextBlock Style="{StaticResource PhoneTextExtraLargeStyle-Sketch}" TextWrapping="Wrap" FontFamily="Segoe WP Black" FontSize="30" Height="144" Margin="128,0,0,0" VerticalAlignment="Center"><Run FontWeight="Bold"  Foreground="White" Text="NGOs"/></TextBlock>
+							<Image x:Name="V8" Height="139" Source="Images/NGOicon.png" Stretch="Fill" HorizontalAlignment="Left" Width="128" Margin="0,-150,0,0"/>
+						</StackPanel>
+						<StackPanel Height="136" Width="402">
+							<i:Interaction.Triggers>
+								<i:EventTrigger EventName="MouseLeftButtonDown">
+									<pi:NavigateToScreenAction TargetScreen="WindowsPhonePrototype1Screens.Happy_Tips"/>
+								</i:EventTrigger>
+							</i:Interaction.Triggers>
+							<TextBlock Style="{StaticResource PhoneTextExtraLargeStyle-Sketch}" TextWrapping="Wrap" FontFamily="Segoe WP Black" FontSize="30" Height="144" Margin="132,0,0,0" VerticalAlignment="Center"><Run FontWeight="Bold"  Foreground="White" Text="HAPPY TIPS"/></TextBlock>
+							<Image x:Name="V2" Height="139" Source="Images/happy.jpeg" Stretch="Fill" HorizontalAlignment="Left" Width="128" Margin="0,-150,0,0"/>
+						</StackPanel>
+						<StackPanel Height="136" Width="402">
+							<i:Interaction.Triggers>
+								<i:EventTrigger EventName="MouseLeftButtonDown">
+									<pi:NavigateToScreenAction TargetScreen="WindowsPhonePrototype1Screens.Chat_Box"/>
+								</i:EventTrigger>
+							</i:Interaction.Triggers>
+							<TextBlock Style="{StaticResource PhoneTextExtraLargeStyle-Sketch}" TextWrapping="Wrap" FontFamily="Segoe WP Black"  FontSize="30" Height="144" Margin="132,0,0,0" VerticalAlignment="Center"><Run FontWeight="Bold"  Foreground="White" Text="CHAT BOX"/></TextBlock>
+							<Image x:Name="V3" Height="139" Source="Images/chatbox.jpg" Stretch="Fill" HorizontalAlignment="Left" Width="128" Margin="0,-150,0,0"/>
+						</StackPanel>
+					</ListBox>
+				</Grid>
+		</wp:PanoramaItem>
+		</wp:Panorama>
+		<local:ApplicationBar Height="200" VerticalAlignment="bottom" d:IsPrototypingComposition="True" Margin="0"/>
+	</Grid>
+</mockups:WindowsPhoneChrome>

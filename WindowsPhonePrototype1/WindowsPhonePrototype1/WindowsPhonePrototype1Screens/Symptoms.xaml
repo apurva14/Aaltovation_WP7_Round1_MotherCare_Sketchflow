@@ -1,0 +1,163 @@
+﻿<mockups:WindowsPhoneChrome 
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    xmlns:mockups="clr-namespace:Microsoft.Expression.Prototyping.WindowsPhone.Mockups;assembly=WindowsPhone.Mockups"
+    xmlns:pc="http://schemas.microsoft.com/prototyping/2010/controls"
+    xmlns:i="http://schemas.microsoft.com/expression/2010/interactivity"
+    xmlns:pi="http://schemas.microsoft.com/prototyping/2010/interactivity"
+    xmlns:ei="http://schemas.microsoft.com/expression/2010/interactions"
+    xmlns:local="clr-namespace:WindowsPhonePrototype1Screens"
+    mc:Ignorable="d"
+    x:Class="WindowsPhonePrototype1Screens.Symptoms"
+    x:Name="PhoneChrome">
+	
+    <i:Interaction.Triggers>
+        <i:EventTrigger EventName="OrientationChanged">
+            <i:Interaction.Behaviors>
+                <ei:ConditionBehavior>
+                    <ei:ConditionalExpression>
+                        <ei:ComparisonCondition LeftOperand="{Binding PageOrientation, ElementName=PhoneChrome}"
+                                                RightOperand="Landscape" />
+                    </ei:ConditionalExpression>
+                </ei:ConditionBehavior>
+            </i:Interaction.Behaviors>
+            <mockups:GoToStateAction StateName="Landscape" TargetObject="{Binding ElementName=LayoutRoot}" TargetName="LayoutRoot" />
+        </i:EventTrigger>
+        <i:EventTrigger EventName="OrientationChanged">
+            <i:Interaction.Behaviors>
+                <ei:ConditionBehavior>
+                    <ei:ConditionalExpression>
+                        <ei:ComparisonCondition LeftOperand="{Binding PageOrientation, ElementName=PhoneChrome}"
+                                                RightOperand="Portrait" />
+                    </ei:ConditionalExpression>
+                </ei:ConditionBehavior>
+            </i:Interaction.Behaviors>
+            <mockups:GoToStateAction StateName="Portrait"
+                                     TargetObject="{Binding ElementName=LayoutRoot}"
+                                     TargetName="LayoutRoot" />
+        </i:EventTrigger>
+    </i:Interaction.Triggers>
+
+    <mockups:WindowsPhoneChrome.BackButton>
+        <Button Style="{StaticResource Chrome-Button}">
+            <i:Interaction.Triggers>
+                <i:EventTrigger EventName="Click">
+                    <pi:NavigateBackAction />
+                </i:EventTrigger>
+            </i:Interaction.Triggers>
+            <Image Source="/AppBarIcons/back.png" />
+        </Button>
+    </mockups:WindowsPhoneChrome.BackButton>
+
+    <mockups:WindowsPhoneChrome.HomeButton>
+        <Button Style="{StaticResource Chrome-Button}">
+            <Image Source="/AppBarIcons/home.png" >
+            	<i:Interaction.Triggers>
+            		<i:EventTrigger EventName="MouseLeftButtonDown">
+            			<pi:NavigateToScreenAction TargetScreen="WindowsPhonePrototype1Screens.Home"/>
+            		</i:EventTrigger>
+            	</i:Interaction.Triggers>
+            </Image>
+        </Button>
+    </mockups:WindowsPhoneChrome.HomeButton>
+
+    <mockups:WindowsPhoneChrome.SearchButton>
+        <Button Style="{StaticResource Chrome-Button}">
+            <Image Source="/AppBarIcons/search.png" >
+            	<i:Interaction.Triggers>
+            		<i:EventTrigger EventName="MouseLeftButtonDown">
+            			<pi:NavigateToScreenAction TargetScreen="WindowsPhonePrototype1Screens.Search"/>
+            		</i:EventTrigger>
+            	</i:Interaction.Triggers>
+            </Image>
+        </Button>
+    </mockups:WindowsPhoneChrome.SearchButton>
+
+    <Grid x:Name="LayoutRoot">
+		<Grid.Background>
+				<ImageBrush Stretch="UniformToFill" ImageSource="Images/main.jpg" Opacity="0.80"/>
+		</Grid.Background>
+        <VisualStateManager.CustomVisualStateManager>
+            <ei:ExtendedVisualStateManager />
+        </VisualStateManager.CustomVisualStateManager>
+        <VisualStateManager.VisualStateGroups>
+            <VisualStateGroup x:Name="CommonStates"
+                              ei:ExtendedVisualStateManager.UseFluidLayout="True">
+                <VisualState x:Name="Portrait" />
+                <VisualState x:Name="Landscape">
+                    <Storyboard>
+                        <ObjectAnimationUsingKeyFrames Storyboard.TargetProperty="(WindowsPhoneChrome.PageOrientation)"
+                                                       Storyboard.TargetName="PhoneChrome">
+                            <DiscreteObjectKeyFrame KeyTime="0">
+                                <DiscreteObjectKeyFrame.Value>
+                                    <mockups:PageOrientation>Landscape</mockups:PageOrientation>
+                                </DiscreteObjectKeyFrame.Value>
+                            </DiscreteObjectKeyFrame>
+                        </ObjectAnimationUsingKeyFrames>
+                    </Storyboard>
+                </VisualState>
+            </VisualStateGroup>
+        </VisualStateManager.VisualStateGroups>
+		<StackPanel Height="192" Margin="0,0,8,0" VerticalAlignment="Top">
+    		<TextBlock Height="38" Margin="0,0,8,0" Style="{StaticResource BasicTextBlock-Sketch}" TextWrapping="Wrap" Text="Mother Care" FontSize="32" Foreground="White"/>
+    		<TextBlock Height="110" Margin="0,-15,8,0" Style="{StaticResource BasicTextBlock-Sketch}" TextWrapping="Wrap" Text="Symptoms" FontSize="96" VerticalAlignment="Top" Foreground="White"/>
+    	</StackPanel>
+		<local:Play_Pause Height="80" VerticalAlignment="Top" d:IsPrototypingComposition="True" Margin="-8,138,8,0"/>
+		<TextBlock Height="67" Margin="0,233,8,0" Style="{StaticResource BasicTextBlock-Sketch}" TextWrapping="Wrap" Text="Month 2" VerticalAlignment="Top" FontSize="50" Foreground="White" HorizontalAlignment="Right" Width="160"/>
+		<Grid>
+			<Grid.ColumnDefinitions>
+				<ColumnDefinition Width="0*"/>
+				<ColumnDefinition/>
+			</Grid.ColumnDefinitions>
+			<ListBox Margin="0,262,0,72" Grid.Column="1" Background="Transparent">
+				<StackPanel Width="472" >
+					<TextBlock Height="82" Margin="0,0,8,0" Style="{StaticResource BasicTextBlock-Sketch}" TextWrapping="Wrap" Text="All the text in this page will be audible using the play/pause buttons above" FontSize="32" Foreground="White"/>			
+					<TextBlock Style="{StaticResource PhoneTextExtraLargeStyle-Sketch}" TextWrapping="Wrap" FontFamily="Segoe WP Black" FontSize="30" Height="45" Margin="0,0,40,0" VerticalAlignment="Center"><Run Foreground="White" FontWeight="Bold" Text="Week 5"/></TextBlock>
+					<CheckBox Content="Symptom A"/>
+					<CheckBox Content="Symptom B"/>
+					<CheckBox Content="Symptom C"/>
+					<CheckBox Content="Symptom D"/>
+					<CheckBox Content="Symptom E"/>
+				</StackPanel>	
+				<StackPanel Width="472" >	
+					<TextBlock Style="{StaticResource PhoneTextExtraLargeStyle-Sketch}" TextWrapping="Wrap" FontFamily="Segoe WP Black" FontSize="30" Height="45" Margin="0,0,40,0" VerticalAlignment="Center"><Run Foreground="White" FontWeight="Bold" Text="Week 6"/></TextBlock>
+					<CheckBox Content="Symptom A"/>
+					<CheckBox Content="Symptom B"/>
+					<CheckBox Content="Symptom C"/>
+					<CheckBox Content="Symptom D"/>
+					<CheckBox Content="Symptom E"/>
+				</StackPanel>	
+				<StackPanel Width="472" >
+					<TextBlock Style="{StaticResource PhoneTextExtraLargeStyle-Sketch}" TextWrapping="Wrap" FontFamily="Segoe WP Black" FontSize="30" Height="45" Margin="0,0,40,0" VerticalAlignment="Center"><Run Foreground="White" FontWeight="Bold" Text="Week 7"/></TextBlock>
+					<CheckBox Content="Symptom A"/>
+					<CheckBox Content="Symptom B"/>
+					<CheckBox Content="Symptom C"/>
+					<CheckBox Content="Symptom D"/>
+					<CheckBox Content="Symptom E"/>
+				</StackPanel>
+				<StackPanel Width="472" >
+					<TextBlock Style="{StaticResource PhoneTextExtraLargeStyle-Sketch}" TextWrapping="Wrap" FontFamily="Segoe WP Black" FontSize="30" Height="45" Margin="0,0,40,0" VerticalAlignment="Center"><Run Foreground="White" FontWeight="Bold" Text="Week 8"/></TextBlock>
+					<CheckBox Content="Symptom A"/>
+					<CheckBox Content="Symptom B"/>
+					<CheckBox Content="Symptom C"/>
+					<CheckBox Content="Symptom D"/>
+					<CheckBox Content="Symptom E"/>
+				</StackPanel>
+				<StackPanel Width="472" >
+					<TextBox Style="{StaticResource BasicTextBox-Sketch}" Text="Make notes of unusual sysmptoms" TextWrapping="Wrap" VerticalAlignment="Bottom" Margin="0,0,118,72" Height="101"/>
+					<Button Content="Save"  VerticalAlignment="Bottom" Margin="362,-175,0,72" Height="101" FontSize="32" FontFamily="/WindowsPhonePrototype1.Screens;component/Fonts/SketchFlow Print.ttf#SketchFlow Print">
+						<Button.Background>
+							<LinearGradientBrush EndPoint="0.5,1" MappingMode="RelativeToBoundingBox" StartPoint="0.5,0">
+								<GradientStop Color="#FF9D6F2B" Offset="0.531"/>
+								<GradientStop Color="#FF231807" Offset="0.543"/>
+							</LinearGradientBrush>
+					</Button.Background>
+					</Button>
+				</StackPanel>
+				</ListBox>
+		</Grid>
+		<local:ApplicationBar Height="200" VerticalAlignment="bottom" d:IsPrototypingComposition="True" Margin="0"/>
+	</Grid>
+</mockups:WindowsPhoneChrome>

@@ -1,0 +1,168 @@
+﻿<mockups:WindowsPhoneChrome 
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    xmlns:mockups="clr-namespace:Microsoft.Expression.Prototyping.WindowsPhone.Mockups;assembly=WindowsPhone.Mockups"
+    xmlns:pc="http://schemas.microsoft.com/prototyping/2010/controls"
+    xmlns:i="http://schemas.microsoft.com/expression/2010/interactivity"
+    xmlns:pi="http://schemas.microsoft.com/prototyping/2010/interactivity"
+    xmlns:ei="http://schemas.microsoft.com/expression/2010/interactions"
+    xmlns:local="clr-namespace:WindowsPhonePrototype1Screens"
+    xmlns:toolkit="http://schemas.microsoft.com/winfx/2006/xaml/presentation/toolkit"
+    xmlns:ed="http://schemas.microsoft.com/expression/2010/drawing"
+    mc:Ignorable="d"
+    x:Class="WindowsPhonePrototype1Screens.Chat_Box"
+    x:Name="PhoneChrome">
+	<i:Interaction.Triggers>
+        <i:EventTrigger EventName="OrientationChanged">
+            <i:Interaction.Behaviors>
+                <ei:ConditionBehavior>
+                    <ei:ConditionalExpression>
+                        <ei:ComparisonCondition LeftOperand="{Binding PageOrientation, ElementName=PhoneChrome}"
+                                                RightOperand="Landscape" />
+                    </ei:ConditionalExpression>
+                </ei:ConditionBehavior>
+            </i:Interaction.Behaviors>
+            <mockups:GoToStateAction StateName="Landscape"
+                                     TargetObject="{Binding ElementName=LayoutRoot}"
+                                     TargetName="LayoutRoot" />
+        </i:EventTrigger>
+        <i:EventTrigger EventName="OrientationChanged">
+            <i:Interaction.Behaviors>
+                <ei:ConditionBehavior>
+                    <ei:ConditionalExpression>
+                        <ei:ComparisonCondition LeftOperand="{Binding PageOrientation, ElementName=PhoneChrome}"
+                                                RightOperand="Portrait" />
+                    </ei:ConditionalExpression>
+                </ei:ConditionBehavior>
+            </i:Interaction.Behaviors>
+            <mockups:GoToStateAction StateName="Portrait"
+                                     TargetObject="{Binding ElementName=LayoutRoot}"
+                                     TargetName="LayoutRoot" />
+        </i:EventTrigger>
+    </i:Interaction.Triggers>
+
+    <mockups:WindowsPhoneChrome.BackButton>
+        <Button Style="{StaticResource Chrome-Button}">
+            <i:Interaction.Triggers>
+                <i:EventTrigger EventName="Click">
+                    <pi:NavigateBackAction />
+                </i:EventTrigger>
+            </i:Interaction.Triggers>
+            <Image Source="/AppBarIcons/back.png" />
+        </Button>
+    </mockups:WindowsPhoneChrome.BackButton>
+
+    <mockups:WindowsPhoneChrome.HomeButton>
+        <Button Style="{StaticResource Chrome-Button}">
+            <Image Source="/AppBarIcons/home.png" >
+            	<i:Interaction.Triggers>
+            		<i:EventTrigger EventName="MouseLeftButtonDown">
+            			<pi:NavigateToScreenAction TargetScreen="WindowsPhonePrototype1Screens.Home"/>
+            		</i:EventTrigger>
+            	</i:Interaction.Triggers>
+            </Image>
+        </Button>
+    </mockups:WindowsPhoneChrome.HomeButton>
+
+    <mockups:WindowsPhoneChrome.SearchButton>
+        <Button Style="{StaticResource Chrome-Button}">
+            <Image Source="/AppBarIcons/search.png" >
+            	<i:Interaction.Triggers>
+            		<i:EventTrigger EventName="MouseLeftButtonDown">
+            			<pi:NavigateToScreenAction TargetScreen="WindowsPhonePrototype1Screens.Search"/>
+            		</i:EventTrigger>
+            	</i:Interaction.Triggers>
+            </Image>
+        </Button>
+    </mockups:WindowsPhoneChrome.SearchButton>
+
+    <Grid x:Name="LayoutRoot">
+		<Grid.Background>
+				<ImageBrush Stretch="UniformToFill" ImageSource="Images/main.jpg" Opacity="0.80"/>
+		</Grid.Background>
+        <VisualStateManager.CustomVisualStateManager>
+            <ei:ExtendedVisualStateManager />
+        </VisualStateManager.CustomVisualStateManager>
+        <VisualStateManager.VisualStateGroups>
+            <VisualStateGroup x:Name="CommonStates"
+                              ei:ExtendedVisualStateManager.UseFluidLayout="True">
+                <VisualState x:Name="Portrait" />
+                <VisualState x:Name="Landscape">
+                    <Storyboard>
+                        <ObjectAnimationUsingKeyFrames Storyboard.TargetProperty="(WindowsPhoneChrome.PageOrientation)"
+                                                       Storyboard.TargetName="PhoneChrome">
+                            <DiscreteObjectKeyFrame KeyTime="0">
+                                <DiscreteObjectKeyFrame.Value>
+                                    <mockups:PageOrientation>Landscape</mockups:PageOrientation>
+                                </DiscreteObjectKeyFrame.Value>
+                            </DiscreteObjectKeyFrame>
+                        </ObjectAnimationUsingKeyFrames>
+                    </Storyboard>
+                </VisualState>
+            </VisualStateGroup>
+        </VisualStateManager.VisualStateGroups>
+		<StackPanel Height="192" Margin="0,0,8,0" VerticalAlignment="Top">
+    		<TextBlock Height="38" Margin="0,0,8,0" Style="{StaticResource BasicTextBlock-Sketch}" TextWrapping="Wrap" Text="Mother Care" FontSize="32" Foreground="White"/>
+    		<TextBlock Height="85" Margin="0,-15,8,0" Style="{StaticResource BasicTextBlock-Sketch}" TextWrapping="Wrap" Text="ChatBox" FontSize="96" VerticalAlignment="Top" Foreground="White"/>
+    	</StackPanel>
+		<TextBox Style="{StaticResource BasicTextBox-Sketch}" TextWrapping="Wrap" VerticalAlignment="Bottom" Margin="0,0,118,72" Height="101"/>
+		<ListBox Style="{StaticResource ListBox-Sketch}" Margin="0,157,0,173">
+			<ListBoxItem Margin="0" Style="{StaticResource ListBoxItem-Sketch}" Height="164">
+				<StackPanel Height="164" Width="475">
+					<Image Height="160" Margin="8,0,0,0" Source="Images/user2.jpg" Stretch="Fill" HorizontalAlignment="Left" Width="140" d:LayoutOverrides="HorizontalAlignment"/>
+					<ed:Callout AnchorPoint="0,1.25" CalloutStyle="Oval" Content="sdbcskjbvskdbvdvbdvsmdvb?" Foreground="{StaticResource BaseForeground-Sketch}" Fill="{StaticResource BaseBackground-Sketch}" FontSize="{StaticResource SizeDouble-Sketch}" FontFamily="{StaticResource FontFamily-Sketch}" ed:GeometryEffect.GeometryEffect="Sketch" Height="120" Stroke="{StaticResource BaseBorder-Sketch}" StrokeThickness="2" Margin="190,-150,29,50" VerticalAlignment="Center"/>
+				</StackPanel>
+			</ListBoxItem>
+			<ListBoxItem Margin="0" Style="{StaticResource ListBoxItem-Sketch}" Height="164">
+				<ListBoxItem.Projection>
+					<PlaneProjection RotationX="1" RotationY="1"/>
+				</ListBoxItem.Projection>
+				<StackPanel Height="164" Width="475">
+					<Image Height="160" Margin="300,0,0,0" Source="Images/user3.jpg" Stretch="Fill" HorizontalAlignment="Left" Width="140" d:LayoutOverrides="HorizontalAlignment"/>
+					<ed:Callout AnchorPoint="0,1.25" CalloutStyle="Oval" Content="sldkfhsdklfhsdlfhksdlfkhsd&#xd;&#xa;" Foreground="{StaticResource BaseForeground-Sketch}" Fill="{StaticResource BaseBackground-Sketch}" FontSize="{StaticResource SizeDouble-Sketch}" FontFamily="{StaticResource FontFamily-Sketch}" ed:GeometryEffect.GeometryEffect="Sketch" Height="120" Stroke="{StaticResource BaseBorder-Sketch}" StrokeThickness="2" Margin="0,-150,220,50" VerticalAlignment="Center" RenderTransformOrigin="0.5,0.5">
+						<ed:Callout.Projection>
+							<PlaneProjection RotationY="180"/>
+						</ed:Callout.Projection>
+						<ed:Callout.RenderTransform>
+							<CompositeTransform Rotation="360"/>
+						</ed:Callout.RenderTransform>
+					</ed:Callout>
+				</StackPanel>
+			</ListBoxItem>
+			<ListBoxItem Margin="0" Style="{StaticResource ListBoxItem-Sketch}" Height="164">
+				<StackPanel Height="164" Width="475">
+					<Image Height="160" Margin="8,0,0,0" Source="Images/user2.jpg" Stretch="Fill" HorizontalAlignment="Left" Width="140" d:LayoutOverrides="HorizontalAlignment"/>
+					<ed:Callout AnchorPoint="0,1.25" CalloutStyle="Oval" Content="sdbcskjbvskdbvdvbdvsmdvb?" Foreground="{StaticResource BaseForeground-Sketch}" Fill="{StaticResource BaseBackground-Sketch}" FontSize="{StaticResource SizeDouble-Sketch}" FontFamily="{StaticResource FontFamily-Sketch}" ed:GeometryEffect.GeometryEffect="Sketch" Height="120" Stroke="{StaticResource BaseBorder-Sketch}" StrokeThickness="2" Margin="190,-150,29,50" VerticalAlignment="Center"/>
+				</StackPanel>
+			</ListBoxItem>
+			<ListBoxItem Margin="0" Style="{StaticResource ListBoxItem-Sketch}" Height="164">
+				<ListBoxItem.Projection>
+					<PlaneProjection RotationX="1" RotationY="1"/>
+				</ListBoxItem.Projection>
+				<StackPanel Height="164" Width="475">
+					<Image Height="160" Margin="300,0,0,0" Source="Images/user3.jpg" Stretch="Fill" HorizontalAlignment="Left" Width="140" d:LayoutOverrides="HorizontalAlignment"/>
+					<ed:Callout AnchorPoint="0,1.25" CalloutStyle="Oval" Content="sldkfhsdklfhsdlfhksdlfkhsd&#xa;" Foreground="{StaticResource BaseForeground-Sketch}" Fill="{StaticResource BaseBackground-Sketch}" FontSize="{StaticResource SizeDouble-Sketch}" FontFamily="{StaticResource FontFamily-Sketch}" ed:GeometryEffect.GeometryEffect="Sketch" Height="120" Stroke="{StaticResource BaseBorder-Sketch}" StrokeThickness="2" Margin="0,-150,220,50" VerticalAlignment="Center" RenderTransformOrigin="0.5,0.5">
+						<ed:Callout.Projection>
+							<PlaneProjection RotationY="180"/>
+						</ed:Callout.Projection>
+						<ed:Callout.RenderTransform>
+							<CompositeTransform Rotation="360"/>
+						</ed:Callout.RenderTransform>
+					</ed:Callout>
+				</StackPanel>
+			</ListBoxItem>
+			
+		</ListBox>
+		<Button Content="Send"  VerticalAlignment="Bottom" Margin="362,0,0,72" Height="101" FontSize="32" FontFamily="/WindowsPhonePrototype1.Screens;component/Fonts/SketchFlow Print.ttf#SketchFlow Print">
+			<Button.Background>
+				<LinearGradientBrush EndPoint="0.5,1" MappingMode="RelativeToBoundingBox" StartPoint="0.5,0">
+					<GradientStop Color="#FF9D6F2B" Offset="0.531"/>
+					<GradientStop Color="#FF231807" Offset="0.543"/>
+				</LinearGradientBrush>
+			</Button.Background>
+		</Button>
+		<local:ApplicationBar Height="200" VerticalAlignment="bottom" d:IsPrototypingComposition="True" Margin="0"/>
+    </Grid>
+</mockups:WindowsPhoneChrome>

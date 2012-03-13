@@ -1,0 +1,16 @@
+﻿<local:MainViewModel 
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"       
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:local="clr-namespace:Preggy" 
+    SampleProperty="Sample Text Property Value">
+    
+    <local:MainViewModel.Items>
+        <local:ItemViewModel LineOne="Nutrition" />
+        <local:ItemViewModel LineOne="Exercise"/>
+        <local:ItemViewModel LineOne="Do's and  Dont's" />
+        <local:ItemViewModel LineOne="Psychological Wellbeing" />
+        <local:ItemViewModel LineOne="General Symptoms" />
+        <local:ItemViewModel LineOne="Baby Stage" />
+    </local:MainViewModel.Items>
+    
+</local:MainViewModel>

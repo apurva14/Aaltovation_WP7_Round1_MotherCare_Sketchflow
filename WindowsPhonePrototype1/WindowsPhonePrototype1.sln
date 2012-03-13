@@ -1,0 +1,23 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 11.00
+# Visual Studio 2010
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "WindowsPhonePrototype1", "WindowsPhonePrototype1\WindowsPhonePrototype1.csproj", "{01be4166-4f13-4a04-bee7-bde84dd1a955}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "WindowsPhonePrototype1Screens", "WindowsPhonePrototype1\WindowsPhonePrototype1Screens\WindowsPhonePrototype1Screens.csproj", "{f7d24312-e5ab-4aa4-a768-a23452c00e34}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{01BE4166-4F13-4A04-BEE7-BDE84DD1A955}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{01BE4166-4F13-4A04-BEE7-BDE84DD1A955}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{01BE4166-4F13-4A04-BEE7-BDE84DD1A955}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{01BE4166-4F13-4A04-BEE7-BDE84DD1A955}.Release|Any CPU.Build.0 = Release|Any CPU
+		{F7D24312-E5AB-4AA4-A768-A23452C00E34}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{F7D24312-E5AB-4AA4-A768-A23452C00E34}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{F7D24312-E5AB-4AA4-A768-A23452C00E34}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{F7D24312-E5AB-4AA4-A768-A23452C00E34}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+EndGlobal

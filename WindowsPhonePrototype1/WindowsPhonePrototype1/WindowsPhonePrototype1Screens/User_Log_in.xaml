@@ -1,0 +1,218 @@
+﻿<mockups:WindowsPhoneChrome 
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    xmlns:mockups="clr-namespace:Microsoft.Expression.Prototyping.WindowsPhone.Mockups;assembly=WindowsPhone.Mockups"
+    xmlns:pc="http://schemas.microsoft.com/prototyping/2010/controls"
+    xmlns:i="http://schemas.microsoft.com/expression/2010/interactivity"
+    xmlns:pi="http://schemas.microsoft.com/prototyping/2010/interactivity"
+    xmlns:ei="http://schemas.microsoft.com/expression/2010/interactions"
+    mc:Ignorable="d"
+    x:Class="WindowsPhonePrototype1Screens.User_Log_in"
+    x:Name="PhoneChrome">
+    <mockups:WindowsPhoneChrome.Resources>
+		<Style x:Key="ButtonStyle1" TargetType="Button"/>
+		<Style x:Key="ButtonStyle2" TargetType="Button">
+			<Setter Property="FontSize" Value="48"/>
+		</Style>
+	</mockups:WindowsPhoneChrome.Resources>
+	<i:Interaction.Triggers>
+        <i:EventTrigger EventName="OrientationChanged">
+            <i:Interaction.Behaviors>
+                <ei:ConditionBehavior>
+                    <ei:ConditionalExpression>
+                        <ei:ComparisonCondition LeftOperand="{Binding PageOrientation, ElementName=PhoneChrome}"
+                                                RightOperand="Landscape" />
+                    </ei:ConditionalExpression>
+                </ei:ConditionBehavior>
+            </i:Interaction.Behaviors>
+            <mockups:GoToStateAction StateName="Landscape"
+                                     TargetObject="{Binding ElementName=LayoutRoot}"
+                                     TargetName="LayoutRoot" />
+        </i:EventTrigger>
+        <i:EventTrigger EventName="OrientationChanged">
+            <i:Interaction.Behaviors>
+                <ei:ConditionBehavior>
+                    <ei:ConditionalExpression>
+                        <ei:ComparisonCondition LeftOperand="{Binding PageOrientation, ElementName=PhoneChrome}"
+                                                RightOperand="Portrait" />
+                    </ei:ConditionalExpression>
+                </ei:ConditionBehavior>
+            </i:Interaction.Behaviors>
+            <mockups:GoToStateAction StateName="Portrait"
+                                     TargetObject="{Binding ElementName=LayoutRoot}"
+                                     TargetName="LayoutRoot" />
+        </i:EventTrigger>
+    </i:Interaction.Triggers>
+
+    <mockups:WindowsPhoneChrome.BackButton>
+        <Button Style="{StaticResource Chrome-Button}">
+            <i:Interaction.Triggers>
+                <i:EventTrigger EventName="Click">
+                    <pi:NavigateBackAction />
+                </i:EventTrigger>
+            </i:Interaction.Triggers>
+            <Image Source="/AppBarIcons/back.png" />
+        </Button>
+    </mockups:WindowsPhoneChrome.BackButton>
+
+    <mockups:WindowsPhoneChrome.HomeButton>
+        <Button Style="{StaticResource Chrome-Button}">
+            <Image Source="/AppBarIcons/home.png" >
+            	<i:Interaction.Triggers>
+            		<i:EventTrigger EventName="MouseLeftButtonDown">
+            			<pi:NavigateToScreenAction TargetScreen="WindowsPhonePrototype1Screens.Home"/>
+            		</i:EventTrigger>
+            	</i:Interaction.Triggers>
+            </Image>
+        </Button>
+    </mockups:WindowsPhoneChrome.HomeButton>
+
+    <mockups:WindowsPhoneChrome.SearchButton>
+        <Button Style="{StaticResource Chrome-Button}">
+            <Image Source="/AppBarIcons/search.png" >
+            	<i:Interaction.Triggers>
+            		<i:EventTrigger EventName="MouseLeftButtonDown">
+            			<pi:NavigateToScreenAction TargetScreen="WindowsPhonePrototype1Screens.Search"/>
+            		</i:EventTrigger>
+            	</i:Interaction.Triggers>
+            </Image>
+        </Button>
+    </mockups:WindowsPhoneChrome.SearchButton>
+
+    <Grid x:Name="LayoutRoot" Margin="0,0,0,-3">
+		<Grid.Background>
+				<ImageBrush Stretch="UniformToFill" ImageSource="Images/main.jpg" Opacity="0.80"/>
+		</Grid.Background>
+        <VisualStateManager.CustomVisualStateManager>
+            <ei:ExtendedVisualStateManager />
+        </VisualStateManager.CustomVisualStateManager>
+        <VisualStateManager.VisualStateGroups>
+            <VisualStateGroup x:Name="CommonStates"
+                              ei:ExtendedVisualStateManager.UseFluidLayout="True">
+                <VisualState x:Name="Portrait" />
+                <VisualState x:Name="Landscape">
+                    <Storyboard>
+                        <ObjectAnimationUsingKeyFrames Storyboard.TargetProperty="(WindowsPhoneChrome.PageOrientation)"
+                                                       Storyboard.TargetName="PhoneChrome">
+                            <DiscreteObjectKeyFrame KeyTime="0">
+                                <DiscreteObjectKeyFrame.Value>
+                                    <mockups:PageOrientation>Landscape</mockups:PageOrientation>
+                                </DiscreteObjectKeyFrame.Value>
+                            </DiscreteObjectKeyFrame>
+                        </ObjectAnimationUsingKeyFrames>
+                    </Storyboard>
+                </VisualState>
+            </VisualStateGroup>
+        </VisualStateManager.VisualStateGroups>
+		<StackPanel Height="36" Margin="0,0,8,0" VerticalAlignment="Top">
+			<TextBlock Height="38" Style="{StaticResource BasicTextBlock-Sketch}" TextWrapping="Wrap" Text="Mother Care" FontSize="32" Foreground="White" HorizontalAlignment="Left" Width="149" Margin="170,0,0,0"/>
+		</StackPanel>
+		<Grid>
+			<ListBox Style="{StaticResource ListBox-Sketch}" Margin="0,43,0,0">
+				<StackPanel>
+					<Grid Height="200" HorizontalAlignment="Left" Width="468">
+						<Image Margin="7,18,0,32" Source="Images/addinfo.jpg" Stretch="Fill" Height="150" Width="150" HorizontalAlignment="Left" d:LayoutOverrides="Width">
+							<i:Interaction.Triggers>
+								<i:EventTrigger EventName="MouseLeftButtonDown">
+									<pi:NavigateToScreenAction TargetScreen="WindowsPhonePrototype1Screens.Add_User"/>
+								</i:EventTrigger>
+							</i:Interaction.Triggers>
+						</Image>
+						<Image Margin="0,18,22,0" Source="Images/user13.jpg" Stretch="Fill" Height="150" Width="150" VerticalAlignment="Top" HorizontalAlignment="Right" d:LayoutOverrides="Width">
+							<i:Interaction.Triggers>
+								<i:EventTrigger EventName="MouseLeftButtonDown">
+									<pi:NavigateToScreenAction TargetScreen="WindowsPhonePrototype1Screens.Screen_1"/>
+								</i:EventTrigger>
+							</i:Interaction.Triggers>
+						</Image>
+					</Grid>
+					<TextBlock TextWrapping="Wrap" Text="Alina" Foreground="White" FontWeight="Bold" Width="152" Margin="0,-10,0,0" HorizontalAlignment="Right" TextAlignment="Center"/>
+					<TextBlock TextWrapping="Wrap" Text="ADD NEW USER" Foreground="White" FontWeight="Bold" Width="152" Margin="0,-30,0,0" HorizontalAlignment="Left" TextAlignment="Center"/>
+				</StackPanel>
+				<StackPanel>
+					<Grid Height="200" HorizontalAlignment="Left" Width="468">
+						<Image Margin="7,18,0,32" Source="Images/user4.jpg" Stretch="Fill" Height="150" Width="150" HorizontalAlignment="Left" d:LayoutOverrides="Width">
+							<i:Interaction.Triggers>
+								<i:EventTrigger EventName="MouseLeftButtonDown">
+									<pi:NavigateToScreenAction TargetScreen="WindowsPhonePrototype1Screens.Screen_1"/>
+								</i:EventTrigger>
+							</i:Interaction.Triggers>
+						</Image>
+						<Image Margin="0,18,22,0" Source="Images/user12.jpg" Stretch="Fill" Height="150" Width="150" VerticalAlignment="Top" HorizontalAlignment="Right" d:LayoutOverrides="Width">
+							<i:Interaction.Triggers>
+								<i:EventTrigger EventName="MouseLeftButtonDown">
+									<pi:NavigateToScreenAction TargetScreen="WindowsPhonePrototype1Screens.Screen_1"/>
+								</i:EventTrigger>
+							</i:Interaction.Triggers>
+						</Image>
+					</Grid>
+					<TextBlock TextWrapping="Wrap" Text="Marissa" Foreground="White" FontWeight="Bold" Width="152" Margin="0,-10,0,0" HorizontalAlignment="Right" TextAlignment="Center"/>
+					<TextBlock TextWrapping="Wrap" Text="Nisa" Foreground="White" FontWeight="Bold" Width="152" Margin="0,-30,0,0" HorizontalAlignment="Left" TextAlignment="Center"/>
+				</StackPanel>
+				<StackPanel>
+					<Grid Height="200" HorizontalAlignment="Left" Width="468">
+						<Image Margin="7,18,0,32" Source="Images/user6.jpg" Stretch="Fill" Height="150" Width="150" HorizontalAlignment="Left" d:LayoutOverrides="Width">
+							<i:Interaction.Triggers>
+								<i:EventTrigger EventName="MouseLeftButtonDown">
+									<pi:NavigateToScreenAction TargetScreen="WindowsPhonePrototype1Screens.Screen_1"/>
+								</i:EventTrigger>
+							</i:Interaction.Triggers>
+						</Image>
+						<Image Margin="0,18,22,0" Source="Images/user7.jpg" Stretch="Fill" Height="150" Width="150" VerticalAlignment="Top" HorizontalAlignment="Right" d:LayoutOverrides="Width">
+							<i:Interaction.Triggers>
+								<i:EventTrigger EventName="MouseLeftButtonDown">
+									<pi:NavigateToScreenAction TargetScreen="WindowsPhonePrototype1Screens.Screen_1"/>
+								</i:EventTrigger>
+							</i:Interaction.Triggers>
+						</Image>
+					</Grid>
+					<TextBlock TextWrapping="Wrap" Text="Mina" Foreground="White" FontWeight="Bold" Width="152" Margin="0,-10,0,0" HorizontalAlignment="Right" TextAlignment="Center"/>
+					<TextBlock TextWrapping="Wrap" Text="Esra" Foreground="White" FontWeight="Bold" Width="152" Margin="0,-30,0,0" HorizontalAlignment="Left" TextAlignment="Center"/>
+				</StackPanel>
+				<StackPanel>
+					<Grid Height="200" HorizontalAlignment="Left" Width="468">
+						<Image Margin="7,18,0,32" Source="Images/user11.jpg" Stretch="Fill" Height="150" Width="150" HorizontalAlignment="Left" d:LayoutOverrides="Width">
+							<i:Interaction.Triggers>
+								<i:EventTrigger EventName="MouseLeftButtonDown">
+									<pi:NavigateToScreenAction TargetScreen="WindowsPhonePrototype1Screens.Screen_1"/>
+								</i:EventTrigger>
+							</i:Interaction.Triggers>
+						</Image>
+						<Image Margin="0,18,22,0" Source="Images/user5.jpg" Stretch="Fill" Height="150" Width="150" VerticalAlignment="Top" HorizontalAlignment="Right" d:LayoutOverrides="Width">
+							<i:Interaction.Triggers>
+								<i:EventTrigger EventName="MouseLeftButtonDown">
+									<pi:NavigateToScreenAction TargetScreen="WindowsPhonePrototype1Screens.Screen_1"/>
+								</i:EventTrigger>
+							</i:Interaction.Triggers>
+						</Image>
+					</Grid>
+					<TextBlock TextWrapping="Wrap" Text="Veronica" Foreground="White" FontWeight="Bold" Width="152" Margin="0,-10,0,0" HorizontalAlignment="Right" TextAlignment="Center"/>
+					<TextBlock TextWrapping="Wrap" Text="Emma" Foreground="White" FontWeight="Bold" Width="152" Margin="0,-30,0,0" HorizontalAlignment="Left" TextAlignment="Center"/>
+				</StackPanel>
+				<StackPanel>
+					<Grid Height="200" HorizontalAlignment="Left" Width="468">
+						<Image Margin="7,18,0,32" Source="Images/user8.jpg" Stretch="Fill" Height="150" Width="150" HorizontalAlignment="Left" d:LayoutOverrides="Width">
+							<i:Interaction.Triggers>
+								<i:EventTrigger EventName="MouseLeftButtonDown">
+									<pi:NavigateToScreenAction TargetScreen="WindowsPhonePrototype1Screens.Screen_1"/>
+								</i:EventTrigger>
+							</i:Interaction.Triggers>
+						</Image>
+						<Image Margin="0,18,22,0" Source="Images/user11.jpg" Stretch="Fill" Height="150" Width="150" VerticalAlignment="Top" HorizontalAlignment="Right" d:LayoutOverrides="Width">
+							<i:Interaction.Triggers>
+								<i:EventTrigger EventName="MouseLeftButtonDown">
+									<pi:NavigateToScreenAction TargetScreen="WindowsPhonePrototype1Screens.Screen_1"/>
+								</i:EventTrigger>
+							</i:Interaction.Triggers>
+						</Image>
+					</Grid>
+					<TextBlock TextWrapping="Wrap" Text="Monalisa" Foreground="White" FontWeight="Bold" Width="152" Margin="0,-10,0,0" HorizontalAlignment="Right" TextAlignment="Center"/>
+					<TextBlock TextWrapping="Wrap" Text="Becky" Foreground="White" FontWeight="Bold" Width="152" Margin="0,-30,0,0" HorizontalAlignment="Left" TextAlignment="Center"/>
+				</StackPanel>
+				
+			</ListBox>
+		</Grid>
+    </Grid>
+</mockups:WindowsPhoneChrome>

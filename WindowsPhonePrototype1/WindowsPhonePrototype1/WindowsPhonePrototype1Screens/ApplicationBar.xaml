@@ -1,0 +1,66 @@
+﻿<UserControl
+	xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+	xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+	xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+	xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+	xmlns:Microsoft_Expression_Prototyping_WindowsPhone_Mockups="clr-namespace:Microsoft.Expression.Prototyping.WindowsPhone.Mockups;assembly=WindowsPhone.Mockups"
+	xmlns:i="http://schemas.microsoft.com/expression/2010/interactivity" xmlns:pi="http://schemas.microsoft.com/prototyping/2010/interactivity"
+	mc:Ignorable="d"
+	x:Class="WindowsPhonePrototype1Screens.ApplicationBar"
+	d:DesignWidth="480" d:DesignHeight="72" Height="72" Width="480">
+
+	<Grid x:Name="LayoutRoot">
+		<Microsoft_Expression_Prototyping_WindowsPhone_Mockups:ApplicationBarMockup Margin="0" VerticalAlignment="Bottom">
+		<Microsoft_Expression_Prototyping_WindowsPhone_Mockups:ApplicationBarMockup.IconButtonsContent>
+			<StackPanel HorizontalAlignment="Center" Orientation="Horizontal">
+				<Image Source="Images/back.png" Stretch="Fill" Width="48" HorizontalAlignment="Left" Margin="0">
+					<i:Interaction.Triggers>
+						<i:EventTrigger EventName="MouseLeftButtonDown">
+							<pi:NavigateToScreenAction TargetScreen="WindowsPhonePrototype1Screens.Content"/>
+						</i:EventTrigger>
+					</i:Interaction.Triggers>
+				</Image>
+				<Image Source="Images/E.png" Stretch="Fill" Width="48" Margin="70,0,0,0">
+					<i:Interaction.Triggers>
+						<i:EventTrigger EventName="MouseLeftButtonDown">
+							<pi:NavigateToScreenAction TargetScreen="WindowsPhonePrototype1Screens.Emergency"/>
+						</i:EventTrigger>
+					</i:Interaction.Triggers>
+				</Image>
+				<Image Source="Images/next.png" Stretch="Fill" Width="48" HorizontalAlignment="Right" Margin="70,0,0,0">
+					<i:Interaction.Triggers>
+						<i:EventTrigger EventName="MouseLeftButtonDown">
+							<pi:NavigateToScreenAction TargetScreen="WindowsPhonePrototype1Screens.Content"/>
+						</i:EventTrigger>
+					</i:Interaction.Triggers>
+				</Image>
+			</StackPanel>
+		</Microsoft_Expression_Prototyping_WindowsPhone_Mockups:ApplicationBarMockup.IconButtonsContent>
+		<Microsoft_Expression_Prototyping_WindowsPhone_Mockups:ApplicationBarMockup.MenuItemsContent>
+			<StackPanel>
+				<TextBlock Margin="4" Style="{StaticResource PhoneTextTitle3Style-Sketch}" Text="Add User">
+					<i:Interaction.Triggers>
+						<i:EventTrigger EventName="MouseLeftButtonDown">
+							<pi:NavigateToScreenAction TargetScreen="WindowsPhonePrototype1Screens.Add_User"/>
+						</i:EventTrigger>
+					</i:Interaction.Triggers>
+				</TextBlock>
+				<TextBlock Margin="4" Style="{StaticResource PhoneTextTitle3Style-Sketch}" Text="Switch User">
+					<i:Interaction.Triggers>
+						<i:EventTrigger EventName="MouseLeftButtonDown">
+							<pi:NavigateToScreenAction TargetScreen="WindowsPhonePrototype1Screens.User_Log_in"/>
+						</i:EventTrigger>
+					</i:Interaction.Triggers>
+				</TextBlock>
+				<TextBlock Margin="4" Style="{StaticResource PhoneTextTitle3Style-Sketch}" Text="Edit User Info">
+					<i:Interaction.Triggers>
+						<i:EventTrigger EventName="MouseLeftButtonDown">
+							<pi:NavigateToScreenAction TargetScreen="WindowsPhonePrototype1Screens.Edit_User_Info"/>
+						</i:EventTrigger>
+					</i:Interaction.Triggers>
+				</TextBlock>
+			</StackPanel>
+		</Microsoft_Expression_Prototyping_WindowsPhone_Mockups:ApplicationBarMockup.MenuItemsContent>
+	</Microsoft_Expression_Prototyping_WindowsPhone_Mockups:ApplicationBarMockup>
+	</Grid>
+</UserControl>

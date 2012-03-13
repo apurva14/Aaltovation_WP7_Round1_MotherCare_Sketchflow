@@ -1,0 +1,334 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ExpressionBlendVersion>4.0.30816.0</ExpressionBlendVersion>
+    <ProjectGuid>{F7D24312-E5AB-4AA4-A768-A23452C00E34}</ProjectGuid>
+    <SchemaVersion>2.0</SchemaVersion>
+    <ProjectTypeGuids>{A1591282-1198-4647-A2B1-27E5FF5F6F3B};{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}</ProjectTypeGuids>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>WindowsPhonePrototype1Screens</RootNamespace>
+    <AssemblyName>WindowsPhonePrototype1.Screens</AssemblyName>
+    <TargetFrameworkIdentifier>Silverlight</TargetFrameworkIdentifier>
+    <TargetFrameworkVersion>v4.0</TargetFrameworkVersion>
+    <SilverlightVersion>$(TargetFrameworkVersion)</SilverlightVersion>
+    <SilverlightApplication>false</SilverlightApplication>
+    <ValidateXaml>true</ValidateXaml>
+    <UsePlatformExtensions>false</UsePlatformExtensions>
+    <ThrowErrorsInValidation>true</ThrowErrorsInValidation>
+    <Utf8Output>true</Utf8Output>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>..\Bin\Debug</OutputPath>
+    <DefineConstants>DEBUG;TRACE;SILVERLIGHT</DefineConstants>
+    <NoStdLib>true</NoStdLib>
+    <NoConfig>true</NoConfig>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>..\Bin\Release</OutputPath>
+    <DefineConstants>TRACE;SILVERLIGHT</DefineConstants>
+    <NoStdLib>true</NoStdLib>
+    <NoConfig>true</NoConfig>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="Microsoft.Expression.Drawing" />
+    <Reference Include="Microsoft.Expression.Effects" />
+    <Reference Include="mscorlib" />
+    <Reference Include="System.ComponentModel.DataAnnotations" />
+    <Reference Include="System.Windows" />
+    <Reference Include="system" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Windows.Controls.Data.Input" />
+    <Reference Include="System.Xml" />
+    <Reference Include="System.Net" />
+    <Reference Include="System.Windows.Browser" />
+  </ItemGroup>
+  <PropertyGroup>
+    <ExpressionBlendPrototypingEnabled>true</ExpressionBlendPrototypingEnabled>
+    <ExpressionBlendPrototypeHarness>false</ExpressionBlendPrototypeHarness>
+    <ExpressionBlendPrototypingNavigationScreenTemplateItemName>SketchFlowNavScreenWP</ExpressionBlendPrototypingNavigationScreenTemplateItemName>
+    <ExpressionBlendPrototypingComponentScreenTemplateItemName>SketchFlowCompScreenWP</ExpressionBlendPrototypingComponentScreenTemplateItemName>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="System.Windows.Controls" />
+    <Reference Include="System.Windows.Interactivity" />
+    <Reference Include="Microsoft.Expression.Interactions" />
+    <Reference Include="Microsoft.Expression.Prototyping.Interactivity" />
+    <Reference Include="Microsoft.Expression.Prototyping.Runtime" />
+    <Reference Include="Microsoft.Expression.Prototyping.SketchControls, Version=4.0.5.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL" />
+    <Reference Include="WindowsPhone.Mockups">
+      <HintPath>..\ReferenceAssemblies\WindowsPhone.Mockups.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Phone.Controls">
+      <HintPath>..\ReferenceAssemblies\Microsoft.Phone.Controls.dll</HintPath>
+    </Reference>
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Add_User.xaml.cs">
+      <DependentUpon>Add_User.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="ApplicationBar.xaml.cs">
+      <DependentUpon>ApplicationBar.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Baby_Stages.xaml.cs">
+      <DependentUpon>Baby_Stages.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Chat_Box.xaml.cs">
+      <DependentUpon>Chat_Box.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Content.xaml.cs">
+      <DependentUpon>Content.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Diet.xaml.cs">
+      <DependentUpon>Diet.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Dosanddonts.xaml.cs">
+      <DependentUpon>Dosanddonts.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Edit_User_Info.xaml.cs">
+      <DependentUpon>Edit_User_Info.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Happy_Tips.xaml.cs">
+      <DependentUpon>Happy_Tips.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Hospitals.xaml.cs">
+      <DependentUpon>Hospitals.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="NGOs.xaml.cs">
+      <DependentUpon>NGOs.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Play Pause.xaml.cs">
+      <DependentUpon>Play Pause.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Pregnancy.xaml.cs">
+      <DependentUpon>Pregnancy.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Symptoms.xaml.cs">
+      <DependentUpon>Symptoms.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="User_Log_in.xaml.cs">
+      <DependentUpon>User_Log_in.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="ViewModels\ItemViewModel.cs" />
+    <Compile Include="ViewModels\MainViewModel.cs" />
+    <Page Include="Add_User.xaml">
+      <Generator>MSBuild:MarkupCompilePass1</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="ApplicationBar.xaml">
+      <Generator>MSBuild:MarkupCompilePass1</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Baby_Stages.xaml">
+      <Generator>MSBuild:MarkupCompilePass1</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Chat_Box.xaml">
+      <Generator>MSBuild:MarkupCompilePass1</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Content.xaml">
+      <Generator>MSBuild:MarkupCompilePass1</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Diet.xaml">
+      <Generator>MSBuild:MarkupCompilePass1</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Dosanddonts.xaml">
+      <Generator>MSBuild:MarkupCompilePass1</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Edit_User_Info.xaml">
+      <Generator>MSBuild:MarkupCompilePass1</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Emergency.xaml">
+      <Generator>MSBuild:MarkupCompilePass1</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Exercise.xaml">
+      <Generator>MSBuild:MarkupCompilePass1</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Happy_Tips.xaml">
+      <Generator>MSBuild:MarkupCompilePass1</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Hospitals.xaml">
+      <Generator>MSBuild:MarkupCompilePass1</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Play Pause.xaml">
+      <Generator>MSBuild:MarkupCompilePass1</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="SampleData\MainViewModelSampleData.xaml">
+      <Generator>MSBuild:MarkupCompilePass1</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="NGOs.xaml">
+      <Generator>MSBuild:MarkupCompilePass1</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Pregnancy.xaml">
+      <Generator>MSBuild:MarkupCompilePass1</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="SketchStyles.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="AppList.xaml">
+      <Generator>MSBuild:MarkupCompilePass1</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Home.xaml">
+      <Generator>MSBuild:MarkupCompilePass1</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Search.xaml">
+      <Generator>MSBuild:MarkupCompilePass1</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Screen_1.xaml">
+      <Generator>MSBuild:MarkupCompilePass1</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Compile Include="AppList.xaml.cs">
+      <DependentUpon>AppList.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Emergency.xaml.cs">
+      <DependentUpon>Emergency.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Exercise.xaml.cs">
+      <DependentUpon>Exercise.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Home.xaml.cs">
+      <DependentUpon>Home.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Search.xaml.cs">
+      <DependentUpon>Search.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Screen_1.xaml.cs">
+      <DependentUpon>Screen_1.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="..\Properties\Version.cs">
+      <Link>Properties\Version.cs</Link>
+    </Compile>
+    <Page Include="Symptoms.xaml">
+      <Generator>MSBuild:MarkupCompilePass1</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="User_Log_in.xaml">
+      <Generator>MSBuild:MarkupCompilePass1</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Resource Include="Fonts\BuxtonSketch.ttf" />
+    <Resource Include="Fonts\SketchFlow Print.ttf" />
+    <Resource Include="Fonts\SegoeMarker.ttf" />
+    <Resource Include="Images\addinfo.jpg" />
+    <Resource Include="Images\baby1.png" />
+    <Resource Include="Images\baby2.png" />
+    <Resource Include="Images\baby3.png" />
+    <Resource Include="Images\back.png" />
+    <Resource Include="Images\cancel.png" />
+    <Resource Include="Images\chatbox.jpg" />
+    <Resource Include="Images\diary.jpg" />
+    <Resource Include="Images\diet.jpg" />
+    <Resource Include="Images\E.png" />
+    <Resource Include="Images\exercise1.jpg" />
+    <Resource Include="Images\face.png" />
+    <Resource Include="Images\happy.jpeg" />
+    <Resource Include="Images\hospi.png" />
+    <Resource Include="Images\hospital.png" />
+    <Resource Include="Images\call.jpg" />
+    <Resource Include="Images\main.jpg" />
+    <Resource Include="Images\next.png" />
+    <Resource Include="Images\ngo.png" />
+    <Resource Include="Images\ngo1.jpg" />
+    <Resource Include="Images\ngo2.jpg" />
+    <Resource Include="Images\NGOicon.png" />
+    <Resource Include="Images\pause.png" />
+    <Resource Include="Images\phone.png" />
+    <Resource Include="Images\play.png" />
+    <Resource Include="Images\pushpin.png" />
+    <Resource Include="Images\redcross.jpg" />
+    <Resource Include="Images\sms.png" />
+    <Resource Include="Images\symptom.png" />
+    <Resource Include="Images\user10.jpg" />
+    <Resource Include="Images\user11.jpg" />
+    <Resource Include="Images\user12.jpg" />
+    <Resource Include="Images\user13.jpg" />
+    <Resource Include="Images\user2.jpg" />
+    <Resource Include="Images\user3.jpg" />
+    <Resource Include="Images\user4.jpg" />
+    <Resource Include="Images\user5.jpg" />
+    <Resource Include="Images\user6.jpg" />
+    <Resource Include="Images\user7.jpg" />
+    <Resource Include="Images\user8.jpg" />
+    <Resource Include="Images\who.jpg" />
+    <Resource Include="Sketch.Flow" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="AppBarIcons\add.png" />
+    <Content Include="AppBarIcons\back.png" />
+    <Content Include="AppBarIcons\cancel.png" />
+    <Content Include="AppBarIcons\check.png" />
+    <Content Include="AppBarIcons\close.png" />
+    <Content Include="AppBarIcons\delete.png" />
+    <Content Include="AppBarIcons\download.png" />
+    <Content Include="AppBarIcons\edit.png" />
+    <Content Include="AppBarIcons\favs.png" />
+    <Content Include="AppBarIcons\camera.png" />
+    <Content Include="AppBarIcons\email.png" />
+    <Content Include="AppBarIcons\search.png" />
+    <Content Include="AppBarIcons\settings.png" />
+    <Content Include="AppBarIcons\video.png" />
+    <Content Include="AppBarIcons\folder.png" />
+    <Content Include="AppBarIcons\minus.png" />
+    <Content Include="AppBarIcons\new.png" />
+    <Content Include="AppBarIcons\next.png" />
+    <Content Include="AppBarIcons\questionmark.png" />
+    <Content Include="AppBarIcons\refresh.png" />
+    <Content Include="AppBarIcons\save.png" />
+    <Content Include="AppBarIcons\share.png" />
+    <Content Include="AppBarIcons\stop.png" />
+    <Content Include="AppBarIcons\sync.png" />
+    <Content Include="AppBarIcons\media.back.png" />
+    <Content Include="AppBarIcons\media.next.png" />
+    <Content Include="AppBarIcons\pause.png" />
+    <Content Include="AppBarIcons\play.png" />
+    <Content Include="AppBarIcons\upload.png" />
+    <Content Include="AppBarIcons\home.png" />
+    <Resource Include="Images\hospitalicon.png" />
+    <Resource Include="Images\dosdontsicon.png" />
+  </ItemGroup>
+  <Import Project="$(MSBuildExtensionsPath32)\Microsoft\Silverlight\$(SilverlightVersion)\Microsoft.Silverlight.CSharp.targets" />
+  <ProjectExtensions>
+    <VisualStudio>
+      <FlavorProperties GUID="{A1591282-1198-4647-A2B1-27E5FF5F6F3B}">
+        <SilverlightProjectProperties />
+      </FlavorProperties>
+    </VisualStudio>
+  </ProjectExtensions>
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+	 Other similar extension points exist, see Microsoft.Common.targets.
+	<Target Name="BeforeBuild">
+	</Target>
+	<Target Name="AfterBuild">
+	</Target>
+	-->
+</Project>
